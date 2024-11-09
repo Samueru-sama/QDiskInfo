@@ -30,7 +30,7 @@ jobs:
     - name: Install dependencies for glibc
       run: |
         sudo apt update
-        sudo apt install -y qt6-base-dev qt6-tools-dev qt6-svg-dev libgl1-mesa-dev libxkbcommon-dev libvulkan-dev qmake6 smartmontools qt6ct patchelf xvfb strace
+        sudo apt install -y qt6-base-dev qt6-tools-dev qt6-svg-dev libgl1-mesa-dev libxkbcommon-dev libvulkan-dev qmake6 smartmontools qt6ct patchelf xvfb strace wget
       if: ${{ matrix.clib == 'glibc' }}
     - name: Install dependencies for musl
       run: |
@@ -48,7 +48,7 @@ jobs:
         export APPIMAGE_EXTRACT_AND_RUN=1 ARCH=x86_64 VERSION=anylinux
         LIB4BN="https://raw.githubusercontent.com/VHSgunzo/sharun/refs/heads/main/lib4bin"
         APPIMAGETOOL="https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-$ARCH.AppImage"
-        curl -sSfL "$APPIMAGETOOL" -o appimagetool-static.AppImage
+        wget "$APPIMAGETOOL" -O appimagetool-static.AppImage
         chmod a+x *.AppImage
         chmod a+x .github/scripts/smartctl
          
@@ -58,7 +58,7 @@ jobs:
         cp dist/QDiskInfo.svg AppDir/QDiskInfo.svg
         ln -s ./shared AppDir/usr
         cd AppDir
-        curl -sSfL "$LIB4BN" -O ./lib4bin
+        wget "$LIB4BN" -O ./lib4bin
         chmod +x ./lib4bin
         xvfb-run -d -- ./lib4bin -p -v -e -r -s ./shared/bin/QDiskInfo
         ln -s ./bin/QDiskInfo ./AppRun
