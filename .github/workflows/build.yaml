@@ -59,6 +59,7 @@ jobs:
         ln -s ./shared AppDir/usr
         cd AppDir
         xvfb-run -d -- sh -c "wget '$LIB4BN' -O /dev/stdout | bash -s -- -r -s -g -p -v -e /shared/bin/QDiskInfo"
+        ln -s ./bin/QDiskInfo ./AppRun
         cd ..
 
         ./appimagetool-static.AppImage AppDir
