@@ -58,7 +58,9 @@ jobs:
         cp dist/QDiskInfo.svg AppDir/QDiskInfo.svg
         ln -s ./shared AppDir/usr
         cd AppDir
-        xvfb-run -d -- sh -c "wget '$LIB4BN' -O /dev/stdout | bash -s -- -r -s -g -p -v -e /shared/bin/QDiskInfo"
+        curl -sSfL "$LIB4BN" -O ./lib4bin
+        chmod +x ./lib4bin
+        xvfb-run -d -- ./lib4bin -p -v -e -r -s ./shared/bin/QDiskInfo
         ln -s ./bin/QDiskInfo ./AppRun
         cd ..
 
