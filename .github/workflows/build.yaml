@@ -21,15 +21,15 @@ jobs:
           base-devel     \
           breeze         \
           cmake          \
-          mesa           \
-          vulkan-devel   \
           libxkbcommon   \
+          mesa           \
           patchelf       \
           qt6-base       \
           qt6ct          \
           qt6-svg        \
           qt6-tools      \
           smartmontools  \
+          vulkan-devel   \
           wget
 
     - name: Build
