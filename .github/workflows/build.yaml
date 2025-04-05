@@ -17,7 +17,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        sudo pacman -Syu --noconfirm \
+        pacman -Syu --noconfirm \
           base-devel     \
           mesa           \
           vulkan-devel   \
