@@ -11,6 +11,17 @@ UPINFO="gh-releases-zsync|$(echo "$GITHUB_REPOSITORY" | tr '/' '|')|latest|*-$AR
 LIB4BN="https://raw.githubusercontent.com/VHSgunzo/sharun/refs/heads/main/lib4bin"
 VERSION="$(echo "$GITHUB_SHA" | cut -c 1-9)-anylinux"
 
+# Get iculess qt6-base, removes a 30 MiB lib from the appimage
+if [ "$ARCH" = 'x86_64' ]; then
+	PKG_TYPE='x86_64.pkg.tar.zst'
+else
+	PKG_TYPE='aarch64.pkg.tar.xz'
+fi
+QT6_URL="https://github.com/pkgforge-dev/llvm-libs-debloated/releases/download/continuous/qt6-base-iculess-$PKG_TYPE"
+wget --retry-connrefused --tries=30 "$QT6_URL" -O ./qt6-base-iculess.pkg.tar.zst
+pacman -U --noconfirm ./qt6-base-iculess.pkg.tar.zst
+rm -f ./qt6-base-iculess.pkg.tar.zst
+
 # Prepare AppDir
 mkdir -p ./AppDir/shared/bin
 cp -v ./dist/QDiskInfo.desktop      ./AppDir
