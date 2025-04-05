@@ -24,7 +24,6 @@ jobs:
           vulkan-devel   \
           libxkbcommon   \
           patchelf       \
-          qmake6         \
           qt6-base       \
           qt6ct          \
           qt6-svg        \
