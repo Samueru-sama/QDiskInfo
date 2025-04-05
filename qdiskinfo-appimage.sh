@@ -24,13 +24,13 @@ wget "$LIB4BN" -O ./lib4bin
 chmod +x ./lib4bin
 ./lib4bin -p -v -s -k  \
 	./shared/bin/QDiskInfo \
-	/usr/lib/"$ARCH"-linux-gnu/qt6/plugins/iconengines/* \
-	/usr/lib/"$ARCH"-linux-gnu/qt6/plugins/imageformats/* \
-	/usr/lib/"$ARCH"-linux-gnu/qt6/plugins/platforms/* \
-	/usr/lib/"$ARCH"-linux-gnu/qt6/plugins/platformthemes/* \
-	/usr/lib/"$ARCH"-linux-gnu/qt6/plugins/styles/* \
-	/usr/lib/"$ARCH"-linux-gnu/qt6/plugins/xcbglintegrations/* \
-	/usr/lib/"$ARCH"-linux-gnu/qt6/plugins/wayland-*/*
+	/usr/lib/qt6/plugins/iconengines/* \
+	/usr/lib/qt6/plugins/imageformats/* \
+	/usr/lib/qt6/plugins/platforms/* \
+	/usr/lib/qt6/plugins/platformthemes/* \
+	/usr/lib/qt6/plugins/styles/* \
+	/usr/lib/qt6/plugins/xcbglintegrations/* \
+	/usr/lib/qt6/plugins/wayland-*/*
 
 # also use lib4bin to make a portable smartctl with wrappe 
 ./lib4bin --with-wrappe "$(command -v smartctl)"  
