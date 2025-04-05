@@ -33,7 +33,7 @@ chmod +x ./lib4bin
 	/usr/lib/qt6/plugins/wayland-*/*
 
 # also use lib4bin to make a portable smartctl with wrappe 
-./lib4bin --with-wrappe "$(command -v smartctl)"  
+./lib4bin -s --with-wrappe "$(command -v smartctl)"  
 
 # prepare sharun
 echo '#!/bin/sh
